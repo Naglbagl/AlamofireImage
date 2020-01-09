@@ -104,7 +104,6 @@ extension UIImage {
             _ = cgImage?.dataProvider?.data
         } catch _ {
             //Nothing
-            print("AF_INFLATE FAILED")
         }
     }
 }

@@ -100,11 +100,7 @@ extension UIImage {
         guard !af_inflated else { return }
 
         af_inflated = true
-        do {
-            _ = cgImage?.dataProvider?.data
-        } catch _ {
-            //Nothing
-        }
+        _ = cgImage?.dataProvider?.data
     }
 }
 

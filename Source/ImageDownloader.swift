@@ -121,7 +121,11 @@ open class ImageDownloader {
 
     private let responseQueue: DispatchQueue = {
         let name = String(format: "org.alamofire.imagedownloader.responsequeue-%08x%08x", arc4random(), arc4random())
-        return DispatchQueue(label: name, attributes: .concurrent)
+        if #available(iOSApplicationExtension 10.0, *) {
+            return DispatchQueue(label: name, attributes: .concurrent, autoreleaseFrequency: .workItem)
+        } else {
+            return DispatchQueue(label: name, attributes: .concurrent)
+        }
     }()
 
     // MARK: Initialization

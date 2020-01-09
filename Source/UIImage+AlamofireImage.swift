@@ -96,7 +96,7 @@ extension UIImage {
     ///
     /// Inflating compressed image formats (such as PNG or JPEG) can significantly improve drawing performance as it
     /// allows a bitmap representation to be constructed in the background rather than on the main thread.
-    public func af_inflate() {
+    @objc public func af_inflate() {
         guard !af_inflated else { return }
 
         af_inflated = true
